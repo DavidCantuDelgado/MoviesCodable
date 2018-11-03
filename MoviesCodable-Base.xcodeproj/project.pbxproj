@@ -12,16 +12,20 @@
 		63128B64218BE9CA004C6F4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63128B62218BE9CA004C6F4E /* Main.storyboard */; };
 		63128B66218BE9CC004C6F4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63128B65218BE9CC004C6F4E /* Assets.xcassets */; };
 		63128B69218BE9CC004C6F4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63128B67218BE9CC004C6F4E /* LaunchScreen.storyboard */; };
+		63128B71218BEA8A004C6F4E /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63128B70218BEA8A004C6F4E /* MoviesTableViewController.swift */; };
+		63128B73218BEAB1004C6F4E /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63128B72218BEAB1004C6F4E /* Movies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		63128B5B218BE9CA004C6F4E /* MoviesCodable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesCodable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63128B5B218BE9CA004C6F4E /* MoviesCodable-Base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoviesCodable-Base.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63128B5E218BE9CA004C6F4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63128B60218BE9CA004C6F4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		63128B63218BE9CA004C6F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63128B65218BE9CC004C6F4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63128B68218BE9CC004C6F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63128B6A218BE9CC004C6F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63128B70218BEA8A004C6F4E /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
+		63128B72218BEAB1004C6F4E /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,7 @@
 		63128B5C218BE9CA004C6F4E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63128B5B218BE9CA004C6F4E /* MoviesCodable.app */,
+				63128B5B218BE9CA004C6F4E /* MoviesCodable-Base.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,6 +61,8 @@
 				63128B5E218BE9CA004C6F4E /* AppDelegate.swift */,
 				63128B60218BE9CA004C6F4E /* ViewController.swift */,
 				63128B62218BE9CA004C6F4E /* Main.storyboard */,
+				63128B72218BEAB1004C6F4E /* Movies.swift */,
+				63128B70218BEA8A004C6F4E /* MoviesTableViewController.swift */,
 				63128B65218BE9CC004C6F4E /* Assets.xcassets */,
 				63128B67218BE9CC004C6F4E /* LaunchScreen.storyboard */,
 				63128B6A218BE9CC004C6F4E /* Info.plist */,
@@ -67,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63128B5A218BE9CA004C6F4E /* MoviesCodable */ = {
+		63128B5A218BE9CA004C6F4E /* MoviesCodable-Base */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63128B6D218BE9CC004C6F4E /* Build configuration list for PBXNativeTarget "MoviesCodable" */;
+			buildConfigurationList = 63128B6D218BE9CC004C6F4E /* Build configuration list for PBXNativeTarget "MoviesCodable-Base" */;
 			buildPhases = (
 				63128B57218BE9CA004C6F4E /* Sources */,
 				63128B58218BE9CA004C6F4E /* Frameworks */,
@@ -79,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = MoviesCodable;
+			name = "MoviesCodable-Base";
 			productName = MoviesCodable;
-			productReference = 63128B5B218BE9CA004C6F4E /* MoviesCodable.app */;
+			productReference = 63128B5B218BE9CA004C6F4E /* MoviesCodable-Base.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 63128B56218BE9CA004C6F4E /* Build configuration list for PBXProject "MoviesCodable" */;
+			buildConfigurationList = 63128B56218BE9CA004C6F4E /* Build configuration list for PBXProject "MoviesCodable-Base" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63128B5A218BE9CA004C6F4E /* MoviesCodable */,
+				63128B5A218BE9CA004C6F4E /* MoviesCodable-Base */,
 			);
 		};
 /* End PBXProject section */
@@ -135,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63128B71218BEA8A004C6F4E /* MoviesTableViewController.swift in Sources */,
 				63128B61218BE9CA004C6F4E /* ViewController.swift in Sources */,
+				63128B73218BEAB1004C6F4E /* Movies.swift in Sources */,
 				63128B5F218BE9CA004C6F4E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +325,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63128B56218BE9CA004C6F4E /* Build configuration list for PBXProject "MoviesCodable" */ = {
+		63128B56218BE9CA004C6F4E /* Build configuration list for PBXProject "MoviesCodable-Base" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63128B6B218BE9CC004C6F4E /* Debug */,
@@ -326,7 +334,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63128B6D218BE9CC004C6F4E /* Build configuration list for PBXNativeTarget "MoviesCodable" */ = {
+		63128B6D218BE9CC004C6F4E /* Build configuration list for PBXNativeTarget "MoviesCodable-Base" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63128B6E218BE9CC004C6F4E /* Debug */,
