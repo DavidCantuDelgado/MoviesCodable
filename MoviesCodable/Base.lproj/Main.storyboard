@@ -227,13 +227,16 @@
                                     <constraint firstItem="afy-UL-6V7" firstAttribute="centerY" secondItem="4te-WM-o7e" secondAttribute="centerY" id="bPH-Dw-jdE"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-fk-dhe">
-                                <rect key="frame" x="87.5" y="434" width="200" height="200"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8e-Od-KxV">
+                                <rect key="frame" x="87.5" y="414" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="GVZ-qE-wWG"/>
-                                    <constraint firstAttribute="width" constant="200" id="mBq-ME-I9q"/>
+                                    <constraint firstAttribute="width" constant="200" id="4ns-GY-GTV"/>
+                                    <constraint firstAttribute="height" constant="200" id="oRM-gA-Rqv"/>
                                 </constraints>
-                            </imageView>
+                                <connections>
+                                    <segue destination="Jbc-5T-S86" kind="show" id="pIE-xC-fCg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -245,8 +248,8 @@
                             <constraint firstItem="gMf-cw-rHr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="Fty-AN-Zha"/>
                             <constraint firstItem="ZnA-PD-Pr8" firstAttribute="top" secondItem="f5t-IP-6Jd" secondAttribute="bottom" constant="20" id="HKh-EP-nSK"/>
                             <constraint firstItem="ZnA-PD-Pr8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="JBN-u8-bnU"/>
-                            <constraint firstItem="Cez-fk-dhe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="M4k-Bi-Nva"/>
                             <constraint firstItem="f3c-Gd-eL0" firstAttribute="top" secondItem="LuQ-wL-BTw" secondAttribute="bottom" constant="20" id="MK3-l5-KrZ"/>
+                            <constraint firstItem="Z8e-Od-KxV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TAA-yU-oJw"/>
                             <constraint firstItem="LuQ-wL-BTw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="d2Z-GH-U7c"/>
                             <constraint firstItem="f3c-Gd-eL0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="d6n-H5-ves"/>
                             <constraint firstItem="f5t-IP-6Jd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="dKF-pu-cyn"/>
@@ -254,7 +257,7 @@
                             <constraint firstItem="gMf-cw-rHr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="hM0-tq-dy4"/>
                             <constraint firstItem="f5t-IP-6Jd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="lsJ-Yy-OBC"/>
                             <constraint firstItem="LuQ-wL-BTw" firstAttribute="top" secondItem="jco-fw-JrV" secondAttribute="bottom" constant="20" id="oEJ-IB-rJW"/>
-                            <constraint firstItem="Cez-fk-dhe" firstAttribute="top" secondItem="ZnA-PD-Pr8" secondAttribute="bottom" constant="40" id="p2E-XS-cbo"/>
+                            <constraint firstItem="Z8e-Od-KxV" firstAttribute="top" secondItem="ZnA-PD-Pr8" secondAttribute="bottom" constant="20" id="yMX-3Y-TnS"/>
                             <constraint firstItem="f5t-IP-6Jd" firstAttribute="top" secondItem="gMf-cw-rHr" secondAttribute="bottom" constant="20" id="yWx-eP-ZUt"/>
                             <constraint firstItem="gMf-cw-rHr" firstAttribute="top" secondItem="f3c-Gd-eL0" secondAttribute="bottom" constant="20" id="yyh-4b-T4m"/>
                         </constraints>
@@ -262,7 +265,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies Detail" id="5CB-Uh-C3F"/>
                     <connections>
-                        <outlet property="imPoster" destination="Cez-fk-dhe" id="Af4-PN-4GL"/>
+                        <outlet property="imPoster" destination="Z8e-Od-KxV" id="CcK-lh-4wH"/>
                         <outlet property="tfDetail" destination="xPq-8C-upu" id="oj1-0y-s5C"/>
                         <outlet property="tfDirector" destination="FvK-RI-x84" id="eoa-UX-IQK"/>
                         <outlet property="tfMovie" destination="vko-1n-Ikz" id="UJ2-07-CYP"/>
@@ -274,6 +277,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869.60000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Poster View Controller-->
+        <scene sceneID="rtL-TQ-Mb4">
+            <objects>
+                <viewController id="Jbc-5T-S86" customClass="PosterViewController" customModule="MoviesCodable_Base" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IGz-sP-Cun">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QkJ-0g-SWa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TaY-xz-oTY" appends="YES" id="zQL-gU-hQg"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QkJ-0g-SWa" firstAttribute="top" secondItem="tqy-L1-jD7" secondAttribute="top" id="2aW-D1-yW3"/>
+                            <constraint firstItem="QkJ-0g-SWa" firstAttribute="leading" secondItem="tqy-L1-jD7" secondAttribute="leading" id="9xR-9N-r4S"/>
+                            <constraint firstItem="QkJ-0g-SWa" firstAttribute="trailing" secondItem="tqy-L1-jD7" secondAttribute="trailing" id="jzF-9y-Mxi"/>
+                            <constraint firstItem="QkJ-0g-SWa" firstAttribute="bottom" secondItem="tqy-L1-jD7" secondAttribute="bottom" id="uMU-Fr-8QA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tqy-L1-jD7"/>
+                    </view>
+                    <connections>
+                        <outlet property="imPoster" destination="QkJ-0g-SWa" id="707-QD-Pub"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gV2-OD-N7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="TaY-xz-oTY"/>
+            </objects>
+            <point key="canvasLocation" x="1585" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LH5-c6-g0B">

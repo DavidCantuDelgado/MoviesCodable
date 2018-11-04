@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfDetail: UITextField!
     @IBOutlet weak var tfRating: UITextField!
     @IBOutlet weak var tfYear: UITextField!
-    @IBOutlet weak var imPoster: UIImageView!
+    @IBOutlet weak var imPoster: UIButton!
     var movie:Movies?
     
     override func viewDidLoad() {
@@ -29,13 +29,32 @@ class ViewController: UIViewController {
         tfYear.text = movie!.year
         let sUrl = movie!.poster
         let url = URL(string: sUrl)
-        let imgData = NSData(contentsOf: url!)
-        imPoster.image = UIImage(data: imgData! as Data)
+        do {
+            let imgData = try Data(contentsOf: url!)
+            imPoster.setImage(UIImage(data: imgData as Data), for: UIControl.State.normal)
+        } catch {
+            print("image not found")
+        }
 
         
     }
 
-   
+    // MARK: - Navigation
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let vistaPoster = segue.destination as! PosterViewController
+        let sUrl = movie!.poster
+        let url = URL(string: sUrl)
+        do {
+            let imgData = try Data(contentsOf: url!)
+            vistaPoster.poster = UIImage(data: imgData as Data)
+        } catch {
+            print("image not found")
+        }
+        vistaPoster.posterName = movie!.movie
+    }
     
 }
 

@@ -51,8 +51,12 @@ class MoviesTableViewController: UITableViewController {
         cell.lbDirector?.text = MoviesList[indexPath.row].director
         let sUrl = MoviesList[indexPath.row].poster
         let url = URL(string: sUrl)
-        let imgData = NSData(contentsOf: url!)
-        cell.imPoster?.image = UIImage(data: imgData! as Data)
+        do {
+            let imgData = try Data(contentsOf: url!)
+            cell.imPoster?.image = UIImage(data: imgData as Data)
+        } catch {
+            print("image not found")
+        }
         return cell
     }
     
