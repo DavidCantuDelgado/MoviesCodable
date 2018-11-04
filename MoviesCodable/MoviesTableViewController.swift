@@ -20,9 +20,14 @@ class MoviesTableViewCell: UITableViewCell {
 class MoviesTableViewController: UITableViewController {
     
     var MoviesList = [Movies]()
+    //TODO: 3-Definir variable para obtener el valor del renglón actual
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TODO: 4-Asignar 0 a la variable del renglón actual
+        
+        //TODO: 5-Cambiar la forma como se llena la información del arreglo "MoviesList"
         
         var movie = Movies(movie: "Cinema Paradiso", director: "Giuseppe Tornatore", poster: "http://bugsracer.com/Swift/images/cinemaparadiso.png", rating: "IMDB 8.5", detail: "Película Favorita", year: "1988")
         MoviesList.append(movie)
@@ -30,6 +35,9 @@ class MoviesTableViewController: UITableViewController {
         MoviesList.append(movie)
 
     }
+    
+    // MARK: - Codable Functions
+    // TODO: 6-Agregar las funciones para obtener y guardar los datos del objeto Codable
 
     // MARK: - Table view data source
 
@@ -60,14 +68,18 @@ class MoviesTableViewController: UITableViewController {
         return cell
     }
     
-    
     // Override row size
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
 
-    // MARK: - Navigation
+    // MARK: - Editing table
+    // TODO: 7-Agregar funciones para hacer el Table View Controller editable
 
+    
+
+    // MARK: - Navigation
+    //TODO: 8-Cambiar la función del segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

@@ -15,6 +15,7 @@
 		63128B71218BEA8A004C6F4E /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63128B70218BEA8A004C6F4E /* MoviesTableViewController.swift */; };
 		63128B73218BEAB1004C6F4E /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63128B72218BEAB1004C6F4E /* Movies.swift */; };
 		63CC368C218F75090061BE08 /* PosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC368B218F75090061BE08 /* PosterViewController.swift */; };
+		63FF459B218F9F800096F4B3 /* TODOs.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 63FF459A218F9F800096F4B3 /* TODOs.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		63128B70218BEA8A004C6F4E /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		63128B72218BEAB1004C6F4E /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		63CC368B218F75090061BE08 /* PosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewController.swift; sourceTree = "<group>"; };
+		63FF459A218F9F800096F4B3 /* TODOs.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = TODOs.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		63128B5D218BE9CA004C6F4E /* MoviesCodable */ = {
 			isa = PBXGroup;
 			children = (
+				63FF459A218F9F800096F4B3 /* TODOs.rtf */,
 				63128B5E218BE9CA004C6F4E /* AppDelegate.swift */,
 				63128B60218BE9CA004C6F4E /* ViewController.swift */,
 				63128B62218BE9CA004C6F4E /* Main.storyboard */,
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63128B69218BE9CC004C6F4E /* LaunchScreen.storyboard in Resources */,
+				63FF459B218F9F800096F4B3 /* TODOs.rtf in Resources */,
 				63128B66218BE9CC004C6F4E /* Assets.xcassets in Resources */,
 				63128B64218BE9CA004C6F4E /* Main.storyboard in Resources */,
 			);

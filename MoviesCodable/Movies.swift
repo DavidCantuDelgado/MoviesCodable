@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: 1-Cambiar el objeto Movies a Codable
 class Movies: NSObject {
     var movie : String = ""
     var director : String = ""
@@ -15,6 +16,8 @@ class Movies: NSObject {
     var rating : String = ""
     var detail : String = ""
     var year : String = ""
+    
+    //TODO: 2-incluir la definición de donde obtener el archivo con los datos de "movies"
     
     init(movie: String, director: String, poster: String, rating : String, detail: String, year : String ) {
         self.movie = movie

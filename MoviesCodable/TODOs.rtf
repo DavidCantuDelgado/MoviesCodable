@@ -1,0 +1,324 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf100
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green116\blue0;\red255\green255\blue255;\red170\green13\blue145;
+\red0\green0\blue0;\red92\green38\blue153;\red46\green13\blue110;\red63\green110\blue116;\red196\green26\blue22;
+\red28\green0\blue207;\red38\green71\blue75;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c45600\c0;\csgenericrgb\c100000\c99997\c99999;\csgenericrgb\c66500\c5200\c56900;
+\csgenericrgb\c0\c0\c0;\csgenericrgb\c35900\c14900\c60100;\csgenericrgb\c18100\c5200\c43100;\csgenericrgb\c24700\c43100\c45600;\csgenericrgb\c77000\c10200\c8600;
+\csgenericrgb\c11000\c0\c81000;\csgenericrgb\c14900\c27800\c29400;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab840
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+
+\f0\fs34 \cf2 \cb3 Incluir el bot\'f3n de "Add" en el navigation menu del MoviesTableViewController\
+\
+Incluir el bot\'f3n de "Save" en el navigation menu del ViewController\
+\
+// TODO: 1-Cambiar el objeto Movies a Codable\cf4 \cb3 \
+class\cf5  Movies: \cf6 Codable\cf5  \{\
+\
+\cf2 \cb3 //TODO: 2-incluir la definici\'f3n de donde obtener el archivo con los datos de "movies"\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf4 \cb3 static\cf5  \cf4 let\cf5  documentsDirectory = \cf6 FileManager\cf5 ().\cf7 \cb3 urls\cf5 \cb3 (for: .\cf7 \cb3 documentDirectory\cf5 \cb3 , in: .\cf6 userDomainMask\cf5 ).\cf6 first\cf5 !
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 static\cf5  \cf4 let\cf5  archiveURL = \cf8 \cb3 documentsDirectory\cf5 \cb3 .\cf7 \cb3 appendingPathComponent\cf5 \cb3 (\cf9 \cb3 "Movies"\cf5 \cb3 )\
+\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf2 \cb3 //TODO: 3-Definir variable para obtener el valor del rengl\'f3n actual \
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf4 \cb3 var\cf5  currentRow:\cf6 Int\cf5 ?\
+\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf2 \cb3 //TODO: 4-Asignar 0 a la variable del rengl\'f3n actual\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf8 \cb3 currentRow\cf5 \cb3  = \cf10 \cb3 0\
+\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf2 \cb3 //TODO: 5-Cambiar la forma como se llena la informaci\'f3n del arreglo "MoviesList"\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf4 \cb3 let\cf5  app = \cf6 UIApplication\cf5 .\cf6 shared
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf6 NotificationCenter\cf5 .\cf6 default\cf5 .\cf7 \cb3 addObserver\cf5 \cb3 (\cf4 self\cf5 , selector: \cf4 #selector\cf5 (appFinish(notification:)), name:\cf6 UIApplication\cf5 .\cf6 didEnterBackgroundNotification\cf5 , object: app)
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 self\cf5 .\cf6 navigationItem\cf5 .\cf6 rightBarButtonItem\cf5  = \cf4 self\cf5 .\cf6 editButtonItem
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3  = \cf11 \cb3 getInfo\cf5 \cb3 ()\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf2 \cb3 \
+// TODO: 6-Agregar las funciones para obtener y guardar los datos del objeto Codable\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf4 \cb3 @IBAction\cf5  \cf4 func\cf5  appFinish(notification: \cf6 NSNotification\cf5 )\{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf11 \cb3 saveInfo\cf5 \cb3 ()
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 func\cf5  getInfo() -> [\cf8 \cb3 Movies\cf5 \cb3 ] \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 do\cf5  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf4 let\cf5  data = \cf4 try\cf5  \cf6 Data\cf5 .\cf6 init\cf5 (contentsOf: \cf8 \cb3 Movies\cf5 \cb3 .\cf8 \cb3 archiveURL\cf5 \cb3 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf4 let\cf5  empTmp = \cf4 try\cf5  \cf6 PropertyListDecoder\cf5 ().\cf7 \cb3 decode\cf5 \cb3 ([\cf8 \cb3 Movies\cf5 \cb3 ].\cf4 self\cf5 , from: data)
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf4 return\cf5  empTmp
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 catch\cf5  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf4 return\cf5  []
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 func\cf5  saveInfo()\{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 do\cf5  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf4 let\cf5  data = \cf4 try\cf5  \cf6 PropertyListEncoder\cf5 ().\cf7 \cb3 encode\cf5 \cb3 (\cf8 \cb3 MoviesList\cf5 \cb3 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf4 try\cf5  data.\cf7 \cb3 write\cf5 \cb3 (to: \cf8 \cb3 Movies\cf5 \cb3 .\cf8 \cb3 archiveURL\cf5 \cb3 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 catch\cf5  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf7 \cb3 print\cf5 \cb3 (\cf9 \cb3 "save failed"\cf5 \cb3 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 func\cf5  addMovie(movie: \cf6 String\cf5 , director: \cf6 String\cf5 , poster: \cf6 String\cf5 , rating: \cf6 String\cf5 , detail: \cf6 String\cf5 , year: \cf6 String\cf5 ) \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 .\cf7 \cb3 append\cf5 \cb3 (\cf8 \cb3 Movies\cf5 \cb3 (movie: movie, director: director, poster: poster, rating: rating, detail: detail, year: year))
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf6 tableView\cf5 .\cf7 \cb3 reloadData\cf5 \cb3 ()
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 func\cf5  updateMovie(movie: \cf6 String\cf5 , director: \cf6 String\cf5 , poster: \cf6 String\cf5 , rating: \cf6 String\cf5 , detail: \cf6 String\cf5 , year: \cf6 String\cf5 )\{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [\cf8 \cb3 currentRow\cf5 \cb3 !].\cf8 \cb3 movie\cf5 \cb3  = movie
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [\cf8 \cb3 currentRow\cf5 \cb3 !].\cf8 \cb3 director\cf5 \cb3  = director
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [\cf8 \cb3 currentRow\cf5 \cb3 !].\cf8 \cb3 poster\cf5 \cb3  = poster
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [\cf8 \cb3 currentRow\cf5 \cb3 !].\cf8 \cb3 rating\cf5 \cb3  = rating
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [\cf8 \cb3 currentRow\cf5 \cb3 !].\cf8 \cb3 detail\cf5 \cb3  = detail
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [\cf8 \cb3 currentRow\cf5 \cb3 !].\cf8 \cb3 year\cf5 \cb3  = year
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf6 tableView\cf5 .\cf7 \cb3 reloadData\cf5 \cb3 ()
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}\
+\
+\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf2 \cb3 // MARK: - Editing table\
+// TODO: 7-Agregar funciones para hacer el Table View Controller editable
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf2 \cb3 // Override to support conditional editing of the table view.
+\f1\fs24 \cf0 \cb3 \
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+
+\f0\fs34 \cf5 \cb3     \cf4 override\cf5  \cf4 func\cf5  tableView(\cf4 _\cf5  tableView: \cf6 UITableView\cf5 , canEditRowAt indexPath: \cf6 IndexPath\cf5 ) -> \cf6 Bool\cf5  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 return\cf5  \cf4 true
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf2 \cb3 // Override to support editing the table view.
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 override\cf5  \cf4 func\cf5  tableView(\cf4 _\cf5  tableView: \cf6 UITableView\cf5 , commit editingStyle: \cf6 UITableViewCell\cf5 .\cf6 EditingStyle\cf5 , forRowAt indexPath: \cf6 IndexPath\cf5 ) \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 if\cf5  editingStyle == .\cf7 \cb3 delete\cf5 \cb3  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf8 \cb3 MoviesList\cf5 \cb3 .\cf7 \cb3 remove\cf5 \cb3 (at: indexPath.\cf6 row\cf5 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             tableView.\cf7 \cb3 deleteRows\cf5 \cb3 (at: [indexPath], with: .\cf7 \cb3 fade\cf5 \cb3 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \} \cf4 else\cf5  \cf4 if\cf5  editingStyle == .\cf7 \cb3 insert\cf5 \cb3  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf2 \cb3 // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf2 \cb3 // Override to support rearranging the table view.
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 override\cf5  \cf4 func\cf5  tableView(\cf4 _\cf5  tableView: \cf6 UITableView\cf5 , moveRowAt fromIndexPath: \cf6 IndexPath\cf5 , to: \cf6 IndexPath\cf5 ) \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 let\cf5  tempRow = \cf8 \cb3 MoviesList\cf5 \cb3 [fromIndexPath.\cf6 row\cf5 ]
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [fromIndexPath.\cf6 row\cf5 ] = \cf8 \cb3 MoviesList\cf5 \cb3 [to.\cf6 row\cf5 ]
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf8 \cb3 MoviesList\cf5 \cb3 [to.\cf6 row\cf5 ] = tempRow
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf2 \cb3 // Override to support conditional rearranging of the table view.
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \cf4 override\cf5  \cf4 func\cf5  tableView(\cf4 _\cf5  tableView: \cf6 UITableView\cf5 , canMoveRowAt indexPath: \cf6 IndexPath\cf5 ) -> \cf6 Bool\cf5  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf2 \cb3 // Return false if you do not want the item to be re-orderable.
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 return\cf5  \cf4 true
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}
+\f1\fs24 \cf0 \cb3 \
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+
+\f0\fs34 \cf2 \cb3 \
+\
+//TODO: 8-Cambiar la funci\'f3n del segue\
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf4 \cb3 override\cf5  \cf4 func\cf5  prepare(for segue: \cf6 UIStoryboardSegue\cf5 , sender: \cf4 Any\cf5 ?) \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 let\cf5  vistaEditar = segue.\cf6 destination\cf5  \cf4 as\cf5 ! \cf8 \cb3 ViewController
+\f1\fs24 \cf0 \
+
+\f0\fs34 \cf5 \cb3         vistaEditar.\cf8 \cb3 tableViewController\cf5 \cb3  = \cf4 self
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 if\cf5  segue.\cf6 identifier\cf5  == \cf9 \cb3 "addMovieSegue"\cf5 \cb3  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             vistaEditar.\cf8 \cb3 addMovie\cf5 \cb3  = \cf4 true
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf4 else\cf5  \{
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf8 \cb3 currentRow\cf5 \cb3  = \cf6 tableView\cf5 .\cf6 indexPathForSelectedRow\cf5 !.\cf6 row
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             \cf7 \cb3 print\cf5 \cb3 (\cf9 \cb3 ".. \cf5 \cb3 \\\cf9 \cb3 (\cf6 \cb3 tableView\cf5 .\cf6 indexPathForSelectedRow\cf5 !.\cf6 row\cf9 \cb3 )"\cf5 \cb3 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             vistaEditar.\cf8 \cb3 movie\cf5 \cb3  = \cf8 \cb3 MoviesList\cf5 \cb3 [\cf8 \cb3 currentRow\cf5 \cb3 !]
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3             vistaEditar.\cf8 \cb3 addMovie\cf5 \cb3  = \cf4 false
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \}
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3         \cf6 navigationController\cf5 ?.\cf7 \cb3 popViewController\cf5 \cb3 (animated: \cf4 true\cf5 )
+\f1\fs24 \cf0 \cb3 \
+
+\f0\fs34 \cf5 \cb3     \}\cf2 \cb3 \
+\cf5 \cb3 \
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf2 \cb3 \
+\pard\tx840\pardeftab840\pardirnatural\partightenfactor0
+\cf5 \cb3 \
+\
+}
